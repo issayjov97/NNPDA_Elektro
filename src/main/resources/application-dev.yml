@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/addai?currentSchema=nnpda
+    username: addai
+    password: addai
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate.format_sql: true
+logging:
+  level:
+    web: DEBUG
+    org.hibernate.SQL: DEBUG
+    org:
+      springframework:
+        web:
+          filter:
+            CommonsRequestLoggingFilter: DEBUG
+          client:
+            RestTemplate: DEBUG

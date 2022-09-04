@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - include:
+      file: db/migration/000-user-table.yml
+  - include:
+      file: db/migration/001-authority-table.yml
+  - include:
+      file: db/migration/002-otp-table.yml
+  - include:
+      file: db/migration/003-sensors-table.yml
+  - include:
+      file: db/migration/004-measurements-table.yml
+  - include:
+      file: db/migration/005-demo-sensors.yml
+

@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-measurements
+      author: isaev
+      preConditions:
+        - onFail: MARK_RAN
+          not:
+            tableExists:
+              tableName: measurements
+      changes:
+        - createTable:
+            tableName: measurements
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: measurement_pkey
+              - column:
+                  name: sensor_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    references: sensors(id)
+                    foreignKeyName: measurement_sensor_fk
+              - column:
+                  name: value
+                  type: double
+                  constraints:
+                    nullable: false

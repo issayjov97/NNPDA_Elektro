@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-sensors
+      author: isaev
+      preConditions:
+        - onFail: MARK_RAN
+          not:
+            tableExists:
+              tableName: sensors
+      changes:
+        - createTable:
+            tableName: sensors
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sensor_pkey
+              - column:
+                  name: name
+                  type: varchar(250)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: measurement_unit
+                  type: varchar(250)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: addUniqueConstraint-example
+      author: liquibase-docs
+      changes:
+        - addUniqueConstraint:
+            columnNames: name, measurement_unit
+            constraintName: name_measurement_unit
+            tableName: sensors

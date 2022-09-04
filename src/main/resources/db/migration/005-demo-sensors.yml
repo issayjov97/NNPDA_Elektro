@@ -1,0 +1,50 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-demo-sensors
+      author:  jissayev
+      changes:
+        - insert:
+            tableName: sensors
+            columns:
+              - column:
+                  name: name
+                  value: VOLTMETER
+              - column:
+                  name: measurement_unit
+                  value: V
+        - insert:
+            tableName: sensors
+            columns:
+              - column:
+                  name: name
+                  value: BAROMETER
+              - column:
+                  name: measurement_unit
+                  value: ATM
+        - insert:
+            tableName: sensors
+            columns:
+              - column:
+                  name: name
+                  value: AMMETER
+              - column:
+                  name: measurement_unit
+                  value: A
+        - insert:
+            tableName: sensors
+            columns:
+              - column:
+                  name: name
+                  value: OHMMETER
+              - column:
+                  name: measurement_unit
+                  value: OHMS
+        - insert:
+            tableName: sensors
+            columns:
+              - column:
+                  name: name
+                  value: THERMOMETER
+              - column:
+                  name: measurement_unit
+                  value: CELSIUS

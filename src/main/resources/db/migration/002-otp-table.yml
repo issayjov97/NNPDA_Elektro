@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-otp
+      author: isaev
+      preConditions:
+        - onFail: MARK_RAN
+          not:
+            tableExists:
+              tableName: otp
+      changes:
+        - createTable:
+            tableName: otp
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: otp_pkey
+                    references: users(id)
+                    foreignKeyName: otp_user_fk
+              - column:
+                  name: value
+                  type: varchar(250)
+                  constraints:
+                    nullable: false
+                    unique: true
+                    uniqueConstraintName: otp_uq
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+

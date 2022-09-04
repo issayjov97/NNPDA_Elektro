@@ -1,0 +1,4 @@
+- pipeline.id: users-pipeline
+  path.config: "/usr/share/logstash/pipeline/postgresql.conf"
+- pipeline.id: orders-pipeline
+  path.config: "/usr/share/logstash/pipeline/test.conf"

@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: sem_a
+  datasource:
+    url: jdbc:postgresql://localhost:5432/addai?currentSchema=public
+    username: addai
+    password: addai
+  security:
+    oauth2:
+      client:
+        registration:
+          oauth2-demo:
+            client-id: st55409
+            scope: openid, profile, roles
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8081/login/oauth2/code/oauth2-demo
+            provider:  oauth2-demo
+        provider:
+          oauth2-demo:
+            authorization-uri: http://127.0.0.1:8080/auth/realms/nnpda/protocol/openid-connect/auth
+            token-uri: http://127.0.0.1:8080/auth/realms/nnpda/protocol/openid-connect/token
+            user-info-uri: http://127.0.0.1:8080/auth/realms/nnpda/protocol/openid-connect/userinfo
+            user-name-attribute: st55409
+            jwk-set-uri: http://127.0.0.1:8080/auth/realms/nnpda/protocol/openid-connect/certs
+keycloak:
+  auth-server-url: http://localhost:8080/auth
+  realm: nnpda
+  resource: st55409
+  public-client: true
+server:
+  port: 8081
